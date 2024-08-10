@@ -11,5 +11,6 @@ void main() {
     await tester.pumpWidget(
         const ImageWithFallback(imageUri: uriImage, imageAlt: altImage));
     final alt = find.textContaining('Click');
+    expect(alt, isNotNull);
   });
 }
