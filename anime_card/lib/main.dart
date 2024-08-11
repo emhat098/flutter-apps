@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:anime_card/src/widgets/shape_image.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -94,21 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: AnimatedContainer(
-          width: _width,
-          height: _height,
-          decoration: BoxDecoration(
-              color: _color,
-              borderRadius: _borderRadiusGeometry,
-              border: Border.all(color: Colors.white),
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    _imageNetworkUrl,
-                  ))),
-          duration: const Duration(seconds: 1),
-          curve: Curves.fastEaseInToSlowEaseOut,
-        ),
+        child: ShapeImage(
+            width: _width,
+            height: _height,
+            color: _color,
+            borderRadiusGeometry: _borderRadiusGeometry,
+            imageNetworkUrl: _imageNetworkUrl),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: randomShapePressed,
